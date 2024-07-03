@@ -8,7 +8,6 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: 'e8768931-9ca1-4b99-a84c-eea4de474551'
   webAppName: 'python-flask-32334'
   environmentName: 'python-flask-32334'
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -82,6 +81,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : python-flask-32333'
             inputs:
-              azureSubscription: $(azureServiceConnectionId)
+              azureSubscription: 'Resource Manager Python'
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
